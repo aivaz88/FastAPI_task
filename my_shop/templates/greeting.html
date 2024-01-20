@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Приветствие
+{% endblock %}
+
+{% block content %}
+    <p>Поздравляем, Вы вошли на сайт под именем {{ cookie_data[0] }}, и ввели почту: {{ cookie_data[1] }}</p>
+    <form method="POST">
+        <input type="submit" value="Выйти">
+    </form>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ products[0].product_name }}
+{% endblock %}
+
+{% block login %}
+    {% if cookie_name == "" or cookie_name == None %}
+        <p>
+            <a href="/login/" class="nav-link"><input type="submit" value="вход"></a>
+            <a href="/registration/" class="nav-link"><input type="submit" value="регистрация"></a>
+        </p>
+    {% else %}
+        <p>{{ cookie_name }} <a href="/greeting/" class="nav-link"><input type="submit" value="выйти"></a></p>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+  <table>
+      {% for product in products %}
+      <tr>
+            <th width="150">{{ product.product_name }}</th>
+      </tr>
+      <tr>
+            <th width="150"><img src="{{ url_for('static', path=product.photo) }}" alt="Фото товара" width="300"></th>
+      </tr>
+      <tr>
+            <th width="150">{{ product.content }}</th>
+      </tr>
+      <tr>
+            <th width="150">{{ product.color }}</th>
+      </tr>
+      <tr>
+            <th width="150">{{ product.price }}</th>
+      </tr>
+      {% endfor %}
+  </table>
+{% endblock %}

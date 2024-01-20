@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="FastAPI Starter">
+    <link rel="icon" href="data:;base64,=">
+    <title>
+        {% block title %}
+            My internet shop
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% block login %}
+    {% endblock %}
+    <table style="width:500px">
+        <tr>
+            <th><a href="/" class="nav-link">Основная</a></th>
+            <th><a href="/about/" class="nav-link">О нас</a></th>
+            <th><a href="/contacts/" class="nav-link">Контакты</a></th>
+    </table>
+
+    <h1 class="text-monospace">Это мой интернет-магазин</h1>
+    <div>
+        <p></p>
+        <img src="{{ url_for('static', path='/logo.png') }}" alt="Логотип" width="400" />
+        <p></p>
+    </div>
+    <form method="post">
+        <table>
+            <tr>
+                <th width="150"><a href="/clothes/" class="nav-link">Одежда</a></th>
+                <th width="150"><a href="/shoes/" class="nav-link">Обувь</a></th>
+                <th width="150"><a href="/accessories/" class="nav-link">Аксессуары</a></th>
+            </tr>
+        </table>
+    </form>
+    {% block content %}
+    {% endblock %}
+    <div class="row fixed-bottom modal-footer" style="color:red">
+        <hr><p>Все права защищены &copy;</p>
+    </div>
+</body>
+</html>

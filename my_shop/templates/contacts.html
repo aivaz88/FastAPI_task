@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  {{ super() }} Контакты
+{% endblock %}
+
+{% block login %}
+    {% if cookie_name == "" or cookie_name == None %}
+        <p>
+            <a href="/login/" class="nav-link"><input type="submit" value="вход"></a>
+            <a href="/registration/" class="nav-link"><input type="submit" value="регистрация"></a>
+        </p>
+    {% else %}
+        <p>{{ cookie_name }} <a href="/greeting/" class="nav-link"><input type="submit" value="выйти"></a></p>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+  <p style="font - size: 32px;">Только не пытайтесь со мной связаться :-)</p>
+  <p style="font - size: 32px;">тел. +7-927-317-64-88</p>
+{% endblock %}

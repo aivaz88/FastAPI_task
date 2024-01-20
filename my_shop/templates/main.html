@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block login %}
+    {% if cookie_name == "" or cookie_name == None %}
+        <p>
+            <a href="/login/" class="nav-link"><input type="submit" value="вход"></a>
+            <a href="/registration/" class="nav-link"><input type="submit" value="регистрация"></a>
+        </p>
+    {% else %}
+        <p>{{ cookie_name }} <a href="/greeting/" class="nav-link"><input type="submit" value="выйти"></a></p>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <p style="font - size: 32px;">Это главная страница, тут описание интернет-магазина...</p>
+{% endblock %}
